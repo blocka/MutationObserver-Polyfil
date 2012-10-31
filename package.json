@@ -1,0 +1,11 @@
+{
+	"name": "mutation-observer-polyfil",
+	"version": "0.0.2",
+	"engines": {
+		"node": ">= 0.6.0"
+	},
+	"devDependencies": {
+		"grunt": "~0.3.15",
+		"grunt-jslint": "0.2.x"
+	}
+}
