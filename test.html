@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Mutation Observer Polyfil Test Suite</title>
+
+		<!-- fetch QUnit from the jQuery CDN (thanks, guys :P) -->
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/qunit/qunit-1.10.0.css" />
+		<script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
+
+		<!-- Don't let QUnit do stupid things -->
+		<script>QUnit.config.reorder = false;</script>
+
+		<script src="/MutationObserver-polyfil.js"></script>
+		<script src="/test.js"></script>
+
+	</head>
+
+	<body>
+
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+
+	</body>
+
+</html>
