@@ -3,10 +3,15 @@
 	'use strict';
 
 	/**
-	 * Flag to pollute the global namespace with the new API
-	 * @type {Boolean}
+	 * The MutationObserver API string
+	 * @type {String}
 	 */
-	var pollute = true,
+	var mutationObserver = 'MutationObserver',
+		/**
+		 * Flag to pollute the global namespace with the new API
+		 * @type {Boolean}
+		 */
+		pollute = true,
 		/**
 		 * Supporting browser/vendor prefixes
 		 * @type {Array}
@@ -34,21 +39,21 @@
 		observer;
 
 	// don't attempt to polyfil if there's no need
-	if (window.MutationObserver === undefined) {
+	if (window[mutationObserver] === undefined) {
 
 		// walk through the prefixes
 		for (i = 0; i < prefixCount; i += 1) {
 			// check to see if the API exists
-			if (window[prefixes[i] + 'MutationObserver'] !== undefined) {
+			if (window[prefixes[i] + mutationObserver] !== undefined) {
 				// save the API and exit the loop
-				observer = window[prefixes[i] + 'MutationObserver'];
+				observer = window[prefixes[i] + mutationObserver];
 				break;
 			}
 		}
 
 		// should we pollute?
 		if (pollute) {
-			window.MutationObserver = observer;
+			window[mutationObserver] = observer;
 		}
 
 		// exit - return the new observer
@@ -57,6 +62,6 @@
 	}
 
 	// exit - return the native observer
-	return window.MutationObserver;
+	return window[mutationObserver];
 
 }());
